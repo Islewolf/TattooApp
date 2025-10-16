@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
 
-namespace WebApp.Validation {
+namespace TattooApp.Validation {
 
     public static class ModelStateExtensions {
 

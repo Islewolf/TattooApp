@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 
-namespace WebApp.TagHelpers {
+namespace TattooApp.TagHelpers {
 
     [HtmlTargetElement("table")]
     public class TableFooterSelector : TagHelperComponentTagHelper {

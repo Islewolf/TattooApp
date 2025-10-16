@@ -1,6 +1,6 @@
-﻿using WebApp.Models;
+﻿using TattooApp.Models;
 
-namespace WebApp {
+namespace TattooApp {
     public class TestMiddleware {
         private RequestDelegate nextDelegate;
 
@@ -12,11 +12,11 @@ namespace WebApp {
                 DataContext dataContext) {
             if (context.Request.Path == "/test") {
                 await context.Response.WriteAsync($"There are "
-                    + dataContext.Products.Count() + " products\n");
+                    + dataContext.Artists.Count() + " artists\n");
                 await context.Response.WriteAsync("There are "
-                    + dataContext.Categories.Count() + " categories\n");
+                    + dataContext.Appointments.Count() + " appointments\n");
                 await context.Response.WriteAsync($"There are "
-                    + dataContext.Suppliers.Count() + " suppliers\n");
+                    + dataContext.Specialties.Count() + " specialties\n");
             } else {
                 await nextDelegate(context);
             }

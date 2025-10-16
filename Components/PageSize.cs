@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace WebApp.Components {
+namespace TattooApp.Components {
 
     public class PageSize : ViewComponent {
 

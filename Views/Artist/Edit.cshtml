@@ -1,0 +1,59 @@
+@model TattooApp.Models.Artist
+
+<h2>Edit Artist</h2>
+
+<div class="card">
+    <div class="card-body">
+        <form asp-action="Edit" method="post">
+            <input type="hidden" asp-for="ArtistId" />
+            
+            <div class="mb-3">
+                <label asp-for="Name" class="form-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            
+            <div class="mb-3">
+                <label asp-for="Email" class="form-label"></label>
+                <input asp-for="Email" class="form-control" type="email" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            
+            <div class="mb-3">
+                <label asp-for="Phone" class="form-label"></label>
+                <input asp-for="Phone" class="form-control" />
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+            
+            <div class="mb-3">
+                <label asp-for="Role" class="form-label"></label>
+                <input asp-for="Role" class="form-control" />
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label">Specialties</label>
+                @foreach (var specialty in ViewBag.Specialties)
+                {
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="specialtyIds" 
+                               value="@specialty.SpecialtyId" id="specialty_@specialty.SpecialtyId"
+                               @(ViewBag.SelectedSpecialties.Contains(specialty.SpecialtyId) ? "checked" : "") />
+                        <label class="form-check-label" for="specialty_@specialty.SpecialtyId">
+                            @specialty.Name - @specialty.Description
+                        </label>
+                    </div>
+                }
+            </div>
+            
+            <div class="mt-4">
+                <button type="submit" class="btn btn-primary">Save Changes</button>
+                <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+

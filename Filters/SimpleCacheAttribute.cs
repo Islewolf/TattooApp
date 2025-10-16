@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 
-namespace WebApp.Filters {
+namespace TattooApp.Filters {
 
     public class SimpleCacheAttribute : Attribute, IAsyncResourceFilter {
         private Dictionary<PathString, IActionResult> CachedResponses

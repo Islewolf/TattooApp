@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 
-namespace WebApp.TagHelpers {
+namespace TattooApp.TagHelpers {
 
     public class TimeTagHelperComponent : TagHelperComponent {
 

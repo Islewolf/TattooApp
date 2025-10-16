@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Razor.TagHelpers;
 
-namespace WebApp.TagHelpers {
+namespace TattooApp.TagHelpers {
 
     [HtmlTargetElement("*", Attributes = "[highlight=true]")]
     public class HighlightTagHelper : TagHelper {

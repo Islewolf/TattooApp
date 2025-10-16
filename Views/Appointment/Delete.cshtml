@@ -1,0 +1,35 @@
+@model TattooApp.Models.Appointment
+
+<h2>Delete Appointment</h2>
+
+<div class="alert alert-danger">
+    <h4>Are you sure you want to delete this appointment?</h4>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-3">Date & Time</dt>
+            <dd class="col-sm-9">@Model.AppointmentDate.ToString("MMMM dd, yyyy at HH:mm")</dd>
+            
+            <dt class="col-sm-3">Client</dt>
+            <dd class="col-sm-9">@Model.ClientName (@Model.ClientEmail)</dd>
+            
+            <dt class="col-sm-3">Artist</dt>
+            <dd class="col-sm-9">@Model.Artist.Name</dd>
+            
+            <dt class="col-sm-3">Duration</dt>
+            <dd class="col-sm-9">@Model.DurationMinutes minutes</dd>
+            
+            <dt class="col-sm-3">Description</dt>
+            <dd class="col-sm-9">@Model.TattooDescription</dd>
+        </dl>
+        
+        <form asp-action="DeleteConfirmed" method="post">
+            <input type="hidden" name="id" value="@Model.AppointmentId" />
+            <button type="submit" class="btn btn-danger">Confirm Delete</button>
+            <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+</div>
+

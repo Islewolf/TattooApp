@@ -1,0 +1,49 @@
+@model IEnumerable<TattooApp.Models.Appointment>
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>Appointments</h2>
+    <a asp-action="Create" class="btn btn-success">Book New Appointment</a>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Date & Time</th>
+                    <th>Client Name</th>
+                    <th>Client Email</th>
+                    <th>Phone</th>
+                    <th>Artist</th>
+                    <th>Duration</th>
+                    <th>Description</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var appointment in Model)
+                {
+                    var isPast = appointment.AppointmentDate < DateTime.Now;
+                    var rowClass = isPast ? "table-secondary" : "";
+                    <tr class="@rowClass">
+                        <td>@appointment.AppointmentDate.ToString("MMM dd, yyyy HH:mm")</td>
+                        <td>@appointment.ClientName</td>
+                        <td>@appointment.ClientEmail</td>
+                        <td>@appointment.ClientPhone</td>
+                        <td>
+                            <span class="badge bg-info">@appointment.Artist.Name</span>
+                        </td>
+                        <td>@appointment.DurationMinutes min</td>
+                        <td>@appointment.TattooDescription</td>
+                        <td>
+                            <a asp-action="Details" asp-route-id="@appointment.AppointmentId" class="btn btn-sm btn-info">Details</a>
+                            <a asp-action="Edit" asp-route-id="@appointment.AppointmentId" class="btn btn-sm btn-warning">Edit</a>
+                            <a asp-action="Delete" asp-route-id="@appointment.AppointmentId" class="btn btn-sm btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+

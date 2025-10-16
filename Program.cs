@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using WebApp.Models;
-using WebApp.Filters;
+using TattooApp.Models;
+using TattooApp.Filters;
+using System.Globalization;
 //using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -21,6 +22,16 @@ builder.Services.AddScoped<GuidResponseAttribute>();
 //});
 
 var app = builder.Build();
+
+// Set European culture (Faroese/Danish style dates)
+var danishCulture = new CultureInfo("da-DK");
+var localizationOptions = new RequestLocalizationOptions
+{
+    DefaultRequestCulture = new Microsoft.AspNetCore.Localization.RequestCulture(danishCulture),
+    SupportedCultures = new[] { danishCulture },
+    SupportedUICultures = new[] { danishCulture }
+};
+app.UseRequestLocalization(localizationOptions);
 
 app.UseStaticFiles();
 app.MapDefaultControllerRoute();

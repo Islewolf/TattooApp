@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Razor.TagHelpers;
 
-namespace WebApp.TagHelpers {
+namespace TattooApp.TagHelpers {
 
     [HtmlTargetElement("tr", Attributes = "bg-color,text-color")]
     [HtmlTargetElement("td", Attributes = "bg-color")]

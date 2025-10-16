@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 
-namespace WebApp.Filters {
+namespace TattooApp.Filters {
 
     [AttributeUsage(AttributeTargets.Method | AttributeTargets.Class,
          AllowMultiple = true)]

@@ -1,4 +1,4 @@
-﻿namespace WebApp.Models {
+﻿namespace TattooApp.Models {
 
     public class CityViewModel {
         public int? Cities { get; set; }

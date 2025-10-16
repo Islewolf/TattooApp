@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using WebApp.Models;
+using TattooApp.Models;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
 using Microsoft.AspNetCore.Html;
 
-namespace WebApp.Components {
+namespace TattooApp.Components {
 
     public class CitySummary : ViewComponent {
         private CitiesData data;

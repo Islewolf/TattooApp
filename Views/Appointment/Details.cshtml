@@ -1,0 +1,58 @@
+@model TattooApp.Models.Appointment
+
+<h2>Appointment Details</h2>
+
+<div class="card">
+    <div class="card-header bg-success text-white">
+        <h4>Appointment on @Model.AppointmentDate.ToString("MMMM dd, yyyy at HH:mm")</h4>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-6">
+                <h5>Client Information</h5>
+                <dl class="row">
+                    <dt class="col-sm-4">Name</dt>
+                    <dd class="col-sm-8">@Model.ClientName</dd>
+                    
+                    <dt class="col-sm-4">Email</dt>
+                    <dd class="col-sm-8">@Model.ClientEmail</dd>
+                    
+                    <dt class="col-sm-4">Phone</dt>
+                    <dd class="col-sm-8">@Model.ClientPhone</dd>
+                </dl>
+            </div>
+            
+            <div class="col-md-6">
+                <h5>Appointment Information</h5>
+                <dl class="row">
+                    <dt class="col-sm-4">Artist</dt>
+                    <dd class="col-sm-8">
+                        <strong>@Model.Artist.Name</strong>
+                        <br />
+                        <small class="text-muted">@Model.Artist.Role</small>
+                        <br />
+                        @if (Model.Artist.Specialties.Any())
+                        {
+                            @foreach (var specialty in Model.Artist.Specialties)
+                            {
+                                <span class="badge bg-info me-1">@specialty.Name</span>
+                            }
+                        }
+                    </dd>
+                    
+                    <dt class="col-sm-4">Duration</dt>
+                    <dd class="col-sm-8">@Model.DurationMinutes minutes</dd>
+                    
+                    <dt class="col-sm-4">Description</dt>
+                    <dd class="col-sm-8">@Model.TattooDescription</dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="mt-3">
+    <a asp-action="Edit" asp-route-id="@Model.AppointmentId" class="btn btn-warning">Edit</a>
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+</div>
+

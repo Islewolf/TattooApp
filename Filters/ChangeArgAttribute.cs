@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.Filters;
 
-namespace WebApp.Filters {
+namespace TattooApp.Filters {
     public class ChangeArgAttribute : ActionFilterAttribute {
 
         public override async Task OnActionExecutionAsync(

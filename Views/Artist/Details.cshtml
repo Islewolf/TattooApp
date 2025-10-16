@@ -1,0 +1,78 @@
+@model TattooApp.Models.Artist
+
+<h2>Artist Details</h2>
+
+<div class="card mb-3">
+    <div class="card-header bg-primary text-white">
+        <h4>@Model.Name</h4>
+    </div>
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-3">Email</dt>
+            <dd class="col-sm-9">@Model.Email</dd>
+            
+            <dt class="col-sm-3">Phone</dt>
+            <dd class="col-sm-9">@Model.Phone</dd>
+            
+            <dt class="col-sm-3">Role</dt>
+            <dd class="col-sm-9">@Model.Role</dd>
+            
+            <dt class="col-sm-3">Specialties</dt>
+            <dd class="col-sm-9">
+                @if (Model.Specialties.Any())
+                {
+                    @foreach (var specialty in Model.Specialties)
+                    {
+                        <span class="badge bg-info me-1">@specialty.Name</span>
+                    }
+                }
+                else
+                {
+                    <span class="text-muted">No specialties assigned</span>
+                }
+            </dd>
+        </dl>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h5>Appointments (@Model.Appointments.Count)</h5>
+    </div>
+    <div class="card-body">
+        @if (Model.Appointments.Any())
+        {
+            <table class="table table-sm">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Client</th>
+                        <th>Duration</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var apt in Model.Appointments.OrderBy(a => a.AppointmentDate))
+                    {
+                        <tr>
+                            <td>@apt.AppointmentDate.ToString("MMM dd, yyyy HH:mm")</td>
+                            <td>@apt.ClientName</td>
+                            <td>@apt.DurationMinutes min</td>
+                            <td>@apt.TattooDescription</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p class="text-muted">No appointments scheduled</p>
+        }
+    </div>
+</div>
+
+<div class="mt-3">
+    <a asp-action="Edit" asp-route-id="@Model.ArtistId" class="btn btn-warning">Edit</a>
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+</div>
+

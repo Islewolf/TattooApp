@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 
-namespace WebApp.Filters {
+namespace TattooApp.Filters {
 
     public class ResultDiagnosticsAttribute : ResultFilterAttribute {
 

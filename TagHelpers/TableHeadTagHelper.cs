@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Razor.TagHelpers;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace WebApp.TagHelpers {
+namespace TattooApp.TagHelpers {
 
     [HtmlTargetElement("tablehead")]
     public class TableHeadTagHelper : TagHelper {
